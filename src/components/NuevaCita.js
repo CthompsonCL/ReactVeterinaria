@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'uuid'; 
-class NuevaCita extends Component {
 
-    state = {
+
+const stateInicial = {
+   
         cita: {
             mascota: '',
             propietario: '',
@@ -11,7 +12,12 @@ class NuevaCita extends Component {
             sintomas: ''
         },
         error: false
-    }
+    
+}
+
+class NuevaCita extends Component {
+
+    state = {...stateInicial}
 
     //cuando el usuario envia el formulario
     handleSubmit = e => {
@@ -32,6 +38,10 @@ class NuevaCita extends Component {
 
         //agregar la cita al state de App.
         this.props.crearNuevaCita(nuevaCita);
+        //Colocar en el state el stateInicial
+        this.setState({
+            ...stateInicial
+        })
     }
 
     //cuando el usuario escribe en los input
