@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import uuid from 'uuid'; 
 class NuevaCita extends Component {
     state = {
         cita: {
@@ -26,9 +26,11 @@ class NuevaCita extends Component {
             return; 
         }
 
-        //validar que todos los campos esten llenos
+        const nuevaCita = {...this.state.cita};
+        nuevaCita.id = uuid();
 
         //agregar la cita al state de App.
+        this.props.crearNuevaCita(nuevaCita);
     }
 
     //cuando el usuario escribe en los input
