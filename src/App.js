@@ -8,12 +8,19 @@ import NuevaCita from './components/NuevaCita';
 class App extends Component{
  
   state = { 
-
-
+    citas: []
   }
 
   crearNuevaCita = datos => {
-    console.log(datos);
+   //copiar el state actual
+    const citas = [...this.state.citas, datos];
+
+    //agregar al state
+    this.setState({
+        citas 
+    })
+
+
   }
 
   render() {
